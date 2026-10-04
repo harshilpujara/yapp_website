@@ -38,13 +38,13 @@ Everything respects `prefers-reduced-motion`.
 
 From Unsplash (free license), resized to WebP in `assets/photos/`:
 
-| File | Source |
+| File | Unsplash image |
 | --- | --- |
-| talking-window.webp | https://unsplash.com/photos/woman-wearing-headphones-talks-at-laptop-by-window-j0dCClyasFk |
-| typing-office.webp | https://unsplash.com/photos/a-woman-sitting-at-a-desk-with-a-laptop-and-headphones-xuevkdoZmfc |
-| talking-colour.webp | https://unsplash.com/photos/woman-wearing-headphones-works-on-a-laptop-at-a-desk-_vXm9efLaXc |
-| typing-window.webp | https://unsplash.com/photos/a-man-working-on-a-laptop-os7rk_Lh-XY |
-| desk-monitor.webp | https://unsplash.com/photos/a-woman-sitting-at-a-desk-with-a-laptop-and-microphone-kMw7VdjCzC8 |
-| cafe-window.webp | https://unsplash.com/photos/man-wearing-glasses-with-laptop-in-cafe-window-ko8KbYJYpgo |
+| talking-window.webp | https://images.unsplash.com/photo-1759984782076-2909625b0aa8 |
+| typing-office.webp | https://images.unsplash.com/photo-1759984782092-cee3967a0a31 |
+| talking-colour.webp | https://images.unsplash.com/photo-1758874384552-5d090a98033b |
+| typing-window.webp | https://images.unsplash.com/photo-1663743555914-4c948542f757 |
+| desk-monitor.webp | https://images.unsplash.com/photo-1712904124115-92f9bf39072d |
+| cafe-window.webp | https://images.unsplash.com/photo-1764688307432-2b11e191b2f3 |
 
 Download links point at `https://github.com/harshilpujara/yapp/releases/latest`.
