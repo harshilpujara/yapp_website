@@ -250,16 +250,80 @@ const orbOf = (pill) => orbs.get($(".yp-orb", pill));
       requestAnimationFrame(tick);
     }
   }, { threshold: 0.4 });
-  // as you scroll through, the voice lane takes over more of the row
+  // Scroll position decides who gets the room: typing starts wide, and as you
+  // scroll down, talking takes over. Scrolling back up hands it back.
+  const smooth = (t) => t * t * (3 - 2 * t);
   const grow = () => {
-    if (innerWidth <= 860) { voice.style.flexGrow = ""; return; }
     const r = race.getBoundingClientRect();
-    const p = span(innerHeight - r.top, innerHeight * 0.2, innerHeight * 0.9);
-    voice.style.flexGrow = (1 + 1.6 * ease(p)).toFixed(3);
+    const mid = r.top + r.height / 2;
+    const p = smooth(span(innerHeight * 0.92 - mid, 0, innerHeight * 0.62));
+    race.style.setProperty("--p", p.toFixed(4));
+    if (innerWidth > 860) {
+      race.style.setProperty("--kg", mix(1.5, 0.55, p).toFixed(4));
+      race.style.setProperty("--vg", mix(1, 2.5, p).toFixed(4));
+    } else {
+      race.style.setProperty("--kh", `${mix(250, 150, p).toFixed(1)}px`);
+      race.style.setProperty("--vh", `${mix(170, 300, p).toFixed(1)}px`);
+    }
   };
   addEventListener("scroll", grow, { passive: true });
   addEventListener("resize", grow, { passive: true });
   grow();
+}
+
+/* ------------------------------------------------------------------ *
+ * Launch video: grows into place, plays while on screen
+ * ------------------------------------------------------------------ */
+{
+  const card = $("#film-card");
+  const video = $("#film-video");
+  const playBtn = $("#film-play");
+  const soundBtn = $("#film-sound");
+  let userPaused = reduceMotion;
+  let inView = false;
+
+  const sync = () => {
+    playBtn.classList.toggle("paused", video.paused);
+    playBtn.setAttribute("aria-label", video.paused ? "Play video" : "Pause video");
+  };
+  video.addEventListener("play", sync);
+  video.addEventListener("pause", sync);
+  sync();
+
+  const decide = () => {
+    if (inView && !userPaused) video.play().catch(() => {});
+    else video.pause();
+  };
+  onVisible(card, (v) => { inView = v; decide(); }, { threshold: 0.35 });
+
+  playBtn.addEventListener("click", () => {
+    userPaused = !video.paused;
+    if (!userPaused) video.play().catch(() => {}); else video.pause();
+  });
+  let heard = false;
+  soundBtn.addEventListener("click", () => {
+    const on = video.muted;
+    video.muted = !on;
+    soundBtn.setAttribute("aria-pressed", String(on));
+    $("span", soundBtn).textContent = on ? "Sound off" : "Sound on";
+    // the first time sound goes on, start from the top
+    if (on && !heard) { heard = true; video.currentTime = 0; }
+    if (on) { userPaused = false; decide(); }
+  });
+
+  const scale = () => {
+    const r = card.getBoundingClientRect();
+    const p = ease(span(innerHeight - r.top, innerHeight * 0.05, innerHeight * 0.75));
+    card.style.setProperty("--fs", (0.84 + 0.16 * p).toFixed(4));
+    card.style.setProperty("--fr", `${(36 - 14 * p).toFixed(1)}px`);
+  };
+  if (!reduceMotion) {
+    addEventListener("scroll", scale, { passive: true });
+    addEventListener("resize", scale, { passive: true });
+    scale();
+  } else {
+    card.style.setProperty("--fs", 1);
+  }
 }
 
 /* ------------------------------------------------------------------ *

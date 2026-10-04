@@ -22,10 +22,12 @@ npx serve .
 
 ## Sections
 
-- **Hero**: what you said (fillers and all) drifts along a curve into the yapp pill, and the cleaned-up
+- **Hero**: sized to the screen so the animation is always in view. What you said (fillers and all) drifts along a curve into the yapp pill, and the cleaned-up
   version comes out the other side on a dark ribbon. Scrolling speeds it up.
-- **Speed**: typing at ~40 wpm next to talking at ~150 wpm, each line moving at its real pace. The
-  talking lane widens as you scroll.
+- **Launch video**: `assets/video/` (MP4 with a WebM fallback, poster frame). Grows into place on
+  scroll, autoplays muted while on screen, pauses when off screen; play/pause and sound buttons.
+- **Speed**: typing at ~40 wpm next to talking at ~150 wpm, each line moving at its real pace. The two
+  panels trade space with scroll position (widths on desktop, heights on mobile), both directions.
 - **How it works**: a pinned section driven by scroll position. Ctrl+Space gets pressed, the pill
   slides up, words arrive, fillers and corrections get flagged, and the clean message types itself
   into a DM. Scrolling back rewinds it.
