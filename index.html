@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>yapp — Talk instead of typing</title>
+  <meta name="description" content="Free, open-source voice-to-text for Windows. Press Ctrl+Space anywhere, talk, and clean, punctuated text appears at your cursor. Bring your own API key; your audio never touches our servers." />
+  <meta name="theme-color" content="#050506" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="yapp — Talk instead of typing" />
+  <meta property="og:description" content="Free, open-source voice-to-text for Windows. Press Ctrl+Space, talk, and clean text lands at your cursor." />
+  <meta property="og:image" content="assets/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Doto:ROND,wght@0..100,600..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0"><defs><linearGradient id="g-flow" gradientUnits="userSpaceOnUse" x1="90" y1="0" x2="350" y2="0"><stop offset="0" stop-color="#cb9efb"/><stop offset=".55" stop-color="#f06ee6"/><stop offset="1" stop-color="#fd8d83"/></linearGradient>
+<symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 3h8.5v8.5H3zM12.5 3H21v8.5h-8.5zM3 12.5h8.5V21H3zM12.5 12.5H21V21h-8.5z"/></symbol>
+<symbol id="i-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 0 0-8 0v2z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></symbol>
+<linearGradient id="g-mark" gradientUnits="userSpaceOnUse" x1="4000" y1="5540" x2="9000" y2="3740"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#d4a8fb"/><stop offset=".72" stop-color="#e46cf7"/><stop offset="1" stop-color="#ff69c8"/></linearGradient><linearGradient id="g-word" gradientUnits="userSpaceOnUse" x1="1500" y1="3870" x2="5300" y2="2470"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#cb9efb"/><stop offset=".68" stop-color="#f06ee6"/><stop offset="1" stop-color="#fd8d83"/></linearGradient>
+<symbol id="mark" viewBox="290 240 720 790"><g fill="currentColor"><g transform="translate(0,1254) scale(.1,-.1)"><g class="m-tongue"><path fill="url(#g-mark)" d="M8250 6679 c-63 -15 -310 -75 -548 -132 -418 -100 -434 -105 -467 -137 l-35 -34 73 -76 c176 -179 320 -406 425 -669 119 -298 18 -494 -246 -479 -140 8 -181 37 -259 183 -209 391 -261 472 -376 592 -164 170 -348 273 -490 273 -28 0 -306 -60 -645 -140 -1461 -341 -1317 -305 -1428 -360 -186 -92 -358 -297 -393 -468 -64 -309 162 -631 500 -712 199 -48 486 -47 884 1 265 32 432 8 603 -89 124 -69 188 -133 324 -326 186 -261 257 -348 422 -512 345 -343 618 -468 1026 -468 400 -1 730 140 1049 449 206 200 314 386 384 665 30 118 31 135 31 315 0 355 -92 626 -344 1010 -233 355 -301 557 -304 907 -1 177 -1 177 -30 207 -17 17 -32 31 -35 30 -3 -1 -58 -14 -121 -30z"/></g><g class="m-mouth"><path  d="M8250 7405 c-256 -62 -708 -173 -1005 -245 -662 -160 -931 -226 -1560 -380 -269 -66 -746 -183 -1060 -259 -596 -146 -686 -173 -842 -252 -775 -395 -925 -1434 -296 -2051 238 -233 544 -368 938 -414 115 -13 213 -16 556 -12 444 5 476 3 544 -43 20 -13 104 -109 188 -214 580 -727 1202 -1075 1924 -1075 347 0 655 76 1008 250 1090 537 1493 1738 948 2825 -55 109 -91 171 -201 340 -186 284 -227 408 -227 680 0 191 0 191 32 251 149 280 15 609 -286 698 -107 32 -159 24 -661 -99z m127 -932 c2 -350 69 -553 303 -908 252 -384 344 -655 344 -1010 0 -180 -1 -197 -31 -315 -104 -413 -347 -711 -738 -904 -232 -115 -382 -151 -635 -150 -537 0 -908 241 -1365 889 -141 201 -191 260 -272 325 -213 172 -412 221 -738 181 -757 -92 -1116 -13 -1269 279 -152 288 -31 626 277 780 94 46 131 57 467 136 1741 407 1605 379 1711 348 121 -36 266 -129 359 -231 87 -95 153 -202 335 -543 110 -207 177 -255 350 -255 116 0 165 19 236 87 158 153 122 384 -123 786 -82 135 -154 230 -256 334 -52 52 -71 79 -61 82 11 3 1078 261 1099 265 3 1 6 -79 7 -176z"/></g><g class="m-eye m-eye-l"><path  d="M4889 9256 c-112 -31 -219 -116 -273 -215 -45 -84 -56 -141 -56 -301 -1 -275 -77 -435 -245 -515 -158 -75 -313 -39 -559 128 -147 100 -202 121 -310 115 -284 -16 -444 -343 -285 -588 154 -239 458 -437 778 -506 109 -24 348 -24 461 0 518 111 918 516 1032 1048 28 133 32 410 6 500 -70 250 -314 398 -549 334z"/></g><g class="m-eye m-eye-r"><path  d="M7983 9915 c-184 -40 -313 -177 -374 -396 -33 -119 -96 -272 -137 -330 -153 -218 -405 -178 -531 86 -77 163 -177 230 -341 230 -280 0 -425 -233 -335 -539 166 -570 811 -886 1385 -680 398 143 655 434 815 924 91 280 65 456 -88 597 -115 104 -246 140 -394 108z"/></g></g></g></symbol>
+<symbol id="wordmark" viewBox="70 140 1660 625"><g fill="currentColor"><g transform="translate(0,887) scale(.1,-.1)"><path fill="url(#g-word)" d="M4605 4844 c-143 -35 -327 -80 -410 -100 -124 -30 -155 -41 -180 -65 l-30 -29 61 -62 c121 -124 234 -296 321 -488 110 -240 39 -415 -167 -414 -129 1 -165 30 -261 211 -164 310 -333 500 -517 577 -129 54 -104 58 -907 -144 -517 -130 -738 -190 -785 -213 -89 -42 -235 -188 -275 -272 -82 -173 -22 -382 147 -515 166 -132 330 -151 758 -89 376 55 626 -28 796 -262 273 -376 515 -605 741 -699 411 -171 864 -73 1203 260 227 223 335 442 347 701 12 265 -59 477 -268 799 -172 265 -222 412 -236 690 -5 116 -7 127 -31 153 -31 33 3 37 -307 -39z"/><path  d="M4513 7320 c-113 -45 -192 -151 -232 -309 -54 -217 -146 -321 -284 -321 -81 0 -101 11 -212 119 -117 114 -163 136 -280 135 -206 -1 -362 -202 -315 -405 30 -131 159 -290 315 -391 555 -360 1226 -84 1453 597 77 232 62 375 -50 488 -98 98 -271 136 -395 87z M2314 6730 c-64 -13 -141 -57 -189 -106 -60 -61 -85 -132 -96 -270 -14 -183 -75 -294 -191 -344 -101 -43 -173 -25 -293 74 -91 75 -144 96 -241 96 -253 0 -405 -262 -284 -489 90 -168 321 -326 544 -372 608 -125 1164 364 1166 1027 0 113 -16 178 -58 239 -73 104 -235 170 -358 145z M8980 5965 c-73 -21 -133 -57 -204 -124 -50 -49 -92 -104 -256 -341 -50 -73 -241 -343 -292 -414 -197 -274 -443 -523 -593 -600 -81 -42 -108 -45 -129 -14 -48 68 8 238 211 639 92 184 127 264 138 318 65 311 -259 542 -547 389 -114 -60 -191 -167 -338 -463 -350 -708 -376 -1126 -88 -1414 287 -287 827 -284 1243 7 260 182 575 524 790 859 22 35 43 63 47 63 12 0 19 -144 16 -329 l-3 -184 -60 -36 c-33 -20 -98 -59 -145 -85 -294 -169 -685 -443 -934 -655 -839 -715 -1060 -1447 -587 -1943 283 -297 716 -340 1186 -119 637 301 1049 923 1210 1826 14 76 36 307 53 534 7 105 7 105 52 132 25 15 48 28 51 28 4 1 10 -32 13 -71 40 -411 280 -644 661 -642 309 1 598 152 913 479 l123 127 62 -60 c162 -155 362 -234 627 -248 110 -6 130 -9 130 -23 0 -9 -13 -133 -30 -276 -16 -143 -36 -332 -44 -420 -9 -88 -21 -200 -26 -250 -6 -49 -12 -146 -13 -215 -2 -136 19 -207 86 -286 121 -143 403 -139 549 8 105 106 131 214 189 788 14 144 17 150 74 150 25 0 91 7 148 15 507 75 924 264 1236 559 l53 51 -5 -50 c-3 -27 -17 -153 -31 -280 -43 -377 -56 -599 -56 -920 0 -375 15 -441 116 -535 203 -187 540 -95 643 175 27 71 29 98 47 500 18 432 27 544 43 555 7 4 57 12 110 19 642 78 1314 407 1588 778 277 374 181 853 -257 1294 -431 434 -955 574 -1365 366 -252 -127 -447 -387 -580 -770 l-48 -138 -57 118 c-190 397 -556 730 -906 825 -121 32 -331 36 -449 8 -447 -105 -769 -547 -908 -1242 -12 -61 -13 -62 -52 -71 -119 -26 -236 15 -298 103 -60 86 -77 158 -87 365 -13 259 -44 340 -184 480 -253 252 -690 303 -1065 124 -165 -78 -287 -156 -641 -409 -322 -230 -367 -260 -374 -253 -3 3 -6 30 -6 60 0 340 -120 784 -259 960 -115 147 -328 223 -491 178z m6918 -1058 c91 -37 195 -112 280 -202 227 -240 172 -383 -228 -598 -161 -86 -565 -226 -587 -203 -27 27 84 542 157 729 107 275 204 345 378 274z m-2228 -44 c233 -113 397 -420 311 -582 -70 -134 -308 -297 -556 -384 -87 -30 -295 -80 -302 -73 -8 8 25 303 43 391 62 301 141 508 238 621 72 84 134 91 266 27z m-2485 -60 c85 -85 -203 -523 -454 -691 -133 -88 -175 -81 -169 30 10 188 281 528 512 644 78 39 88 40 111 17z m-2321 -1335 c-58 -424 -250 -857 -487 -1098 -365 -371 -704 -327 -538 71 82 195 343 507 640 764 120 104 372 305 384 305 4 0 5 -19 1 -42z M5160 5593 c-36 -4 -141 -29 -585 -138 -143 -35 -442 -109 -665 -164 -223 -55 -632 -157 -910 -226 -278 -70 -548 -138 -600 -150 -288 -70 -755 -198 -818 -224 -578 -240 -877 -796 -705 -1310 180 -537 703 -803 1408 -715 359 44 356 45 548 -206 302 -393 596 -618 969 -739 867 -281 1841 206 2147 1073 173 491 102 933 -239 1476 -166 264 -194 347 -193 585 1 143 2 153 29 210 40 85 46 214 13 299 -43 115 -157 204 -290 226 -35 5 -66 9 -69 8 -3 -1 -21 -3 -40 -5z m-267 -860 c14 -281 64 -427 236 -693 209 -322 280 -534 268 -799 -29 -634 -719 -1126 -1349 -962 -295 77 -539 275 -808 656 -226 320 -466 416 -882 356 -409 -60 -577 -43 -738 74 -140 102 -192 319 -115 480 38 81 140 181 225 222 112 55 1487 396 1567 389 214 -18 403 -196 593 -561 80 -153 116 -196 186 -231 136 -67 296 -14 367 121 41 77 32 188 -26 315 -87 192 -200 364 -320 487 -34 34 -59 64 -56 66 2 3 72 21 154 41 83 20 267 65 410 100 143 35 265 64 271 65 7 1 13 -44 17 -126z"/></g></g></symbol></defs></svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <a class="logo-btn" href="#top" aria-label="yapp home">
+    <svg class="logo-mark" aria-hidden="true"><use href="#mark" /></svg>
+  </a>
+
+  <nav class="nav-pill" aria-label="Primary">
+    <span class="nav-dots" aria-hidden="true"></span>
+    <a href="#how" data-spy="how">How it works</a>
+    <a href="#features" data-spy="features">Features</a>
+    <a href="#privacy" data-spy="privacy">Privacy</a>
+    <a href="#faq" data-spy="faq">FAQ</a>
+  </nav>
+
+  <a class="pill-dark magnetic" href="https://github.com/harshilpujara/yapp/releases/latest" data-download>
+    <svg class="ico" aria-hidden="true"><use href="#i-windows" /></svg>
+    <span>Download</span>
+  </a>
+
+  <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menu-overlay" hidden></div>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
+  <a href="#how" style="--i:0">How it works</a>
+  <a href="#features" style="--i:1">Features</a>
+  <a href="#privacy" style="--i:2">Privacy</a>
+  <a href="#faq" style="--i:3">FAQ</a>
+  <a class="mobile-cta" href="https://github.com/harshilpujara/yapp/releases/latest" style="--i:4">
+    <svg class="ico" aria-hidden="true"><use href="#i-windows" /></svg> Download for Windows
+  </a>
+</nav>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+    <div class="dotgrid"></div>
+    <canvas class="hero-orb" id="hero-orb"></canvas>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="trust anim" style="--d:.05s">
+      <span class="t-ring t1"><span><svg aria-hidden="true"><use href="#i-windows" /></svg></span></span>
+      <span class="t-ring t2"><span><svg aria-hidden="true"><use href="#i-github" /></svg></span></span>
+      <span class="t-ring t3"><span><svg aria-hidden="true"><use href="#i-lock" /></svg></span></span>
+      <span class="t-pill">Free &amp; open source · MIT licensed</span>
+    </div>
+
+    <h1 class="headline" id="hero-title">
+      <span class="h-line" style="--d:.14s">Stop typing.</span>
+      <span class="h-line" style="--d:.32s">Start <em class="grad-text">yapping.</em></span>
+    </h1>
+
+    <p class="subhead anim" style="--d:.46s">
+      Press <b>Ctrl+Space</b> anywhere on Windows, say what you mean, and clean, punctuated
+      text lands right at your cursor. No subscription. No account. No servers of ours.
+    </p>
+
+    <div class="cta-row anim" style="--d:.58s">
+      <a class="btn-primary magnetic" href="https://github.com/harshilpujara/yapp/releases/latest" data-download data-orb-boost>
+        <svg class="ico" aria-hidden="true"><use href="#i-windows" /></svg>
+        <span>Download for Windows</span>
+        <svg class="ico arrow" aria-hidden="true"><use href="#i-arrow" /></svg>
+      </a>
+      <a class="btn-ghost magnetic" href="https://github.com/harshilpujara/yapp" data-orb-boost>
+        <svg class="ico" aria-hidden="true"><use href="#i-github" /></svg>
+        <span>Star on GitHub</span>
+      </a>
+    </div>
+
+    <p class="hint anim" style="--d:.7s">
+      then just press
+      <kbd class="key key-ctrl">Ctrl</kbd><span class="plus">+</span><kbd class="key key-space">Space</kbd>
+      and start talking
+    </p>
+  </div>
+
+  <ul class="stats" aria-label="yapp at a glance">
+    <li class="stat anim" style="--d:.8s">
+      <span class="stat-ico" aria-hidden="true">&lt;</span>
+      <span class="stat-val" data-count="1" data-prefix="~" data-suffix="s" data-from="9">~1s</span>
+      <span class="stat-lbl">Speech to text</span>
+    </li>
+    <li class="stat anim" style="--d:.88s">
+      <span class="stat-ico" aria-hidden="true">$</span>
+      <span class="stat-val" data-count="0" data-prefix="$" data-from="29">$0</span>
+      <span class="stat-lbl">Per month, forever</span>
+    </li>
+    <li class="stat anim" style="--d:.96s">
+      <span class="stat-ico" aria-hidden="true">#</span>
+      <span class="stat-val" data-count="10" data-suffix="+">10+</span>
+      <span class="stat-lbl">Languages, never translated</span>
+    </li>
+    <li class="stat anim" style="--d:1.04s">
+      <span class="stat-ico" aria-hidden="true">*</span>
+      <span class="stat-val" data-count="0" data-from="12">0</span>
+      <span class="stat-lbl">Bytes of audio we keep</span>
+    </li>
+  </ul>
+
+</section>
+
+<!-- ============ HOW IT WORKS / DEMO ============ -->
+<section class="section how" id="how" aria-labelledby="how-title">
+  <div class="sec-head reveal">
+    <span class="eyebrow"><i></i>How it works</span>
+    <h2 class="display" id="how-title">Say it messy.<br /><span class="grad-text">Get it clean.</span></h2>
+    <p class="lede">You talk like a human: ums, restarts, "no wait". yapp writes like an editor. Watch.</p>
+  </div>
+
+  <div class="demo-wrap">
+    <ol class="steps reveal" id="steps">
+      <li class="step" data-step="0">
+        <span class="step-n">01</span>
+        <div>
+          <h3>Press <kbd class="key sm">Ctrl</kbd>+<kbd class="key sm">Space</kbd></h3>
+          <p>In any app, wherever your cursor is. The yapp pill slides up and listens.</p>
+        </div>
+      </li>
+      <li class="step" data-step="1">
+        <span class="step-n">02</span>
+        <div>
+          <h3>Just talk</h3>
+          <p>Ramble, stumble, change your mind. Press the shortcut again when you're done.</p>
+        </div>
+      </li>
+      <li class="step" data-step="2">
+        <span class="step-n">03</span>
+        <div>
+          <h3>Clean text appears</h3>
+          <p>About a second later: punctuated, capitalised, fillers gone, pasted at your cursor.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="demo reveal" id="demo" aria-label="Animated demo of yapp turning speech into clean text" role="img">
+      <div class="said" aria-hidden="true">
+        <span class="said-lbl">what you said</span>
+        <p class="said-text" id="said-text"></p>
+      </div>
+
+      <div class="win" aria-hidden="true">
+        <div class="win-bar">
+          <span class="win-dots"><i></i><i></i><i></i></span>
+          <span class="win-title" id="win-title">Mail — New message</span>
+          <span class="lang-chip" id="lang-chip">English</span>
+        </div>
+        <div class="win-meta" id="win-meta">
+          <div><b>To</b><span id="win-to">sarah@studio.co</span></div>
+          <div><b>Subject</b><span id="win-subj">Thursday call</span></div>
+        </div>
+        <div class="win-body"><span id="typed"></span><span class="caret"></span></div>
+
+        <div class="rec-pill" id="rec-pill">
+          <canvas class="rec-orb" id="rec-orb"></canvas>
+          <span class="rec-label" id="rec-label">keep yapping</span>
+        </div>
+      </div>
+      <div class="kbd-float" id="kbd-float" aria-hidden="true">
+        <kbd class="key">Ctrl</kbd><span>+</span><kbd class="key key-wide">Space</kbd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGE MARQUEE ============ -->
+<div class="marquee" aria-label="Works in many languages">
+  <div class="marquee-track">
+    <span>Hello</span><i></i><span lang="hi">नमस्ते</span><i></i><span lang="es">Hola</span><i></i><span lang="fr">Bonjour</span><i></i><span lang="gu">નમસ્તે</span><i></i><span lang="de">Hallo</span><i></i><span lang="ja">こんにちは</span><i></i><span lang="pt">Olá</span><i></i><span lang="ko">안녕하세요</span><i></i><span lang="zh">你好</span><i></i>
+    <span aria-hidden="true">Hello</span><i></i><span lang="hi" aria-hidden="true">नमस्ते</span><i></i><span lang="es" aria-hidden="true">Hola</span><i></i><span lang="fr" aria-hidden="true">Bonjour</span><i></i><span lang="gu" aria-hidden="true">નમસ્તે</span><i></i><span lang="de" aria-hidden="true">Hallo</span><i></i><span lang="ja" aria-hidden="true">こんにちは</span><i></i><span lang="pt" aria-hidden="true">Olá</span><i></i><span lang="ko" aria-hidden="true">안녕하세요</span><i></i><span lang="zh" aria-hidden="true">你好</span><i></i>
+  </div>
+</div>
+
+<!-- ============ FEATURES ============ -->
+<section class="section features" id="features" aria-labelledby="feat-title">
+  <div class="sec-head reveal">
+    <span class="eyebrow"><i></i>Features</span>
+    <h2 class="display" id="feat-title">All killer.<br /><span class="grad-text">No filler.</span></h2>
+  </div>
+
+  <div class="bento">
+    <article class="card c-wide reveal" style="--d:0s">
+      <div class="card-vis vis-filler" aria-hidden="true">
+        <p class="fl-line"><span class="w f">um</span><span class="w">so</span><span class="w f">uh</span><span class="w">the</span><span class="w">launch</span><span class="w f">like</span><span class="w">is</span><span class="w f">uh</span><span class="w">basically</span><span class="w">ready</span></p>
+      </div>
+      <h3>Filler words vanish</h3>
+      <p>"Um", "uh", stutters and false starts disappear. You sound like your best draft, not your first take.</p>
+    </article>
+
+    <article class="card reveal" style="--d:.08s">
+      <div class="card-vis vis-speed" aria-hidden="true">
+        <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="speed-bar"><span></span></div>
+        <span class="speed-num">~1.0s</span>
+      </div>
+      <h3>Fast. Like, really fast</h3>
+      <p>Speech turns into text in about a second, so you never lose your train of thought.</p>
+    </article>
+
+    <article class="card reveal" style="--d:0s">
+      <div class="card-vis vis-format" aria-hidden="true">
+        <p>let's meet <s>tuesday</s><span class="fx-no">, no,</span> <b class="fx-new">Wednesday.</b></p>
+        <p class="fx-nl"><span class="cmd">"new line"</span> <span class="ret">↵</span></p>
+      </div>
+      <h3>Smart formatting</h3>
+      <p>Punctuation, capitals and paragraphs. Change your mind mid-sentence and yapp keeps the final answer.</p>
+    </article>
+
+    <article class="card reveal" style="--d:.08s">
+      <div class="card-vis vis-lang" aria-hidden="true">
+        <div class="lang-roll" id="lang-roll">
+          <span>Hola, ¿qué tal?</span>
+          <span lang="hi">नमस्ते, कैसे हो?</span>
+          <span lang="ja">元気ですか？</span>
+          <span lang="fr">Ça va bien ?</span>
+          <span lang="gu">કેમ છો?</span>
+        </div>
+        <span class="detect"><i></i><span id="lang-name">Spanish</span> detected</span>
+      </div>
+      <h3>Auto language detection</h3>
+      <p>Pick a language or let yapp work it out each time. Set a primary language for short clips.</p>
+    </article>
+
+    <article class="card reveal" style="--d:.16s">
+      <div class="card-vis vis-notrans" aria-hidden="true">
+        <div class="nt-row"><span class="nt-tag">you said</span><span lang="hi">कल मिलते हैं</span></div>
+        <div class="nt-arrow"><span></span></div>
+        <div class="nt-row"><span class="nt-tag">yapp wrote</span><span lang="hi">कल मिलते हैं।</span></div>
+      </div>
+      <h3>Never translates you</h3>
+      <p>Speak Hindi, get Hindi. Mixed-language speech stays exactly as you said it.</p>
+    </article>
+
+    <article class="card c-wide reveal" style="--d:0s">
+      <div class="card-vis vis-short" aria-hidden="true">
+        <span class="sc-say">"sign off"</span>
+        <span class="sc-arrow"></span>
+        <span class="sc-out"><span class="sc-type">Regards, Harshil</span></span>
+      </div>
+      <h3>Voice shortcuts</h3>
+      <p>Say "sign off", get "Regards, Harshil". It only expands when you clearly mean it as a shortcut, not when the same words show up in a normal sentence.</p>
+    </article>
+
+    <article class="card reveal" style="--d:.08s">
+      <div class="card-vis vis-apps" aria-hidden="true">
+        <span class="app a1">Mail</span><span class="app a2">Slack</span><span class="app a3">Docs</span>
+        <span class="app a4">VS Code</span><span class="app a5">Chrome</span><span class="app a6">Notion</span>
+        <span class="cursor-dot"></span>
+      </div>
+      <h3>Works in any app</h3>
+      <p>The text is pasted wherever your cursor is. Email, chat, docs, code, the search bar.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PRIVACY ============ -->
+<section class="section privacy" id="privacy" aria-labelledby="priv-title">
+  <div class="priv-grid">
+    <div class="sec-head left reveal">
+      <span class="eyebrow"><i></i>Privacy</span>
+      <h2 class="display" id="priv-title">There's no yapp server.<br /><span class="grad-text">Seriously.</span></h2>
+      <p class="lede">Your audio goes straight from your PC to the provider you picked, with your own key. It never comes to us, because there's nowhere for it to go.</p>
+      <ul class="checks">
+        <li><span class="chk"></span>Each recording is deleted from your PC as soon as it's sent</li>
+        <li><span class="chk"></span>No history of what you said. Stats count words, never store them</li>
+        <li><span class="chk"></span>No tracking, no analytics, no crash reporting</li>
+        <li><span class="chk"></span>Your API key lives in Windows Credential Manager</li>
+      </ul>
+    </div>
+
+    <div class="flow reveal" style="--d:.1s" aria-hidden="true">
+      <svg class="flow-svg" viewBox="0 0 440 360">
+        <path class="fp fp-main" d="M90 250 C 180 250, 260 250, 350 250" />
+        <path class="fp fp-dead" d="M90 250 C 140 160, 180 100, 220 90" />
+        <circle class="pkt" r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="M90 250 C 180 250, 260 250, 350 250" /></circle>
+        <circle class="pkt" r="4"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M90 250 C 180 250, 260 250, 350 250" /></circle>
+        <circle class="pkt" r="4"><animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M90 250 C 180 250, 260 250, 350 250" /></circle>
+        <circle class="pkt back" r="3"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M350 262 C 260 262, 180 262, 90 262" /></circle>
+      </svg>
+      <div class="node n-pc"><span class="node-ico"><svg><use href="#i-windows" /></svg></span><b>Your PC</b><small>records &amp; pastes</small></div>
+      <div class="node n-prov"><span class="node-ico"><svg><use href="#i-cloud" /></svg></span><b>Your provider</b><small>Groq · OpenAI · OpenRouter</small></div>
+      <div class="node n-dead"><span class="node-ico"><svg class="logo-mark"><use href="#mark" /></svg></span><b>yapp servers</b><small>don't exist</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING / START ============ -->
+<section class="section start" id="start" aria-labelledby="start-title">
+  <div class="sec-head reveal">
+    <span class="eyebrow"><i></i>Get started</span>
+    <h2 class="display" id="start-title">Free. Like,<br /><span class="grad-text">actually free.</span></h2>
+    <p class="lede">No subscription, no account, no trial. Bring your own API key and pay your provider directly for what you use, which is typically very little.</p>
+  </div>
+
+  <div class="start-grid">
+    <div class="price-card reveal">
+      <div class="price-top">
+        <span class="price"><span class="cur">$</span><span class="amt" data-count="0" data-from="20">0</span></span>
+        <span class="per">/ month<br />forever</span>
+      </div>
+      <p class="price-note">Groq has a free tier that's enough for many people. Any OpenAI-compatible provider works.</p>
+      <div class="providers">
+        <span>Groq</span><span>OpenAI</span><span>OpenRouter</span><span class="more">+ any OpenAI-compatible API</span>
+      </div>
+      <a class="btn-primary magnetic full" href="https://github.com/harshilpujara/yapp/releases/latest" data-download>
+        <svg class="ico" aria-hidden="true"><use href="#i-windows" /></svg>
+        <span>Download for Windows</span>
+        <svg class="ico arrow" aria-hidden="true"><use href="#i-arrow" /></svg>
+      </a>
+      <a class="text-link" href="https://console.groq.com/keys" target="_blank" rel="noopener">Get a free Groq key <span aria-hidden="true">→</span></a>
+    </div>
+
+    <ol class="quick reveal" style="--d:.1s">
+      <li>
+        <span class="q-n">1</span>
+        <div><h3>Download</h3><p>Grab the installer from the latest release, the file ending in <code>-setup.exe</code>.</p></div>
+      </li>
+      <li>
+        <span class="q-n">2</span>
+        <div><h3>Run it</h3><p>If Windows says <em>"Windows protected your PC"</em>, click <b>More info</b> → <b>Run anyway</b>. The installer isn't code-signed yet (certificates cost money every year), and every line of code is public.</p></div>
+      </li>
+      <li>
+        <span class="q-n">3</span>
+        <div><h3>Paste your key</h3><p>Open yapp from the tray, go to <b>AI Services</b>, paste your key and click <b>Save changes</b>.</p></div>
+      </li>
+      <li>
+        <span class="q-n">4</span>
+        <div><h3>Press <kbd class="key sm">Ctrl</kbd>+<kbd class="key sm">Space</kbd> and talk</h3><p>Press it again to stop. Your words appear at your cursor.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="sec-head reveal">
+    <span class="eyebrow"><i></i>FAQ</span>
+    <h2 class="display" id="faq-title">Questions,<br /><span class="grad-text">answered.</span></h2>
+  </div>
+  <div class="faq-list reveal">
+    <details class="qa">
+      <summary>What does it cost me?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>yapp is free. You use your own API key and pay your provider for what you use. Groq has a free tier that is enough for many people. No subscription, no hidden fees.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>Where does my audio go?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>Directly from your PC to the provider you chose, using your own key. It never goes to us, because there is no yapp server. Each recording is deleted from your PC as soon as it has been sent, and yapp keeps no history of what you said. Your provider has its own privacy policy for what they do with what you send.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>Which providers work?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>Any service with an OpenAI-compatible API, including Groq, OpenAI and OpenRouter. Groq is the easiest start: create a key, paste it in, done.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>Which languages work?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>Many, including English, Hindi, Gujarati, Spanish, French, German, Portuguese, Japanese, Korean and Chinese. The exact list depends on your provider's speech model. yapp never translates: you get back the language you spoke.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>Does it work offline?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>No. Transcription and cleanup are done by your provider over the internet, so you need a connection.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>Mac or Linux?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>Windows only for now. yapp is open source, so if you'd like to help bring it elsewhere, the repo is the place to start.</p></div></div>
+    </details>
+    <details class="qa">
+      <summary>How do I update it?<span class="pm" aria-hidden="true"></span></summary>
+      <div class="qa-a"><div><p>Download the newer installer from Releases and run it over the old one. Your settings and key are kept.</p></div></div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" aria-label="Footer">
+  <div class="f-cols">
+    <div class="f-left reveal">
+      <span class="tag">got something to say?</span>
+      <p class="f-head">say it out loud.<br />we'll type it.</p>
+      <nav class="f-nav" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+
+    <div class="f-mid reveal" style="--d:.08s">
+      <svg class="f-word" role="img" aria-label="yapp"><use href="#wordmark" /></svg>
+    </div>
+
+    <div class="f-right reveal" style="--d:.16s">
+      <span class="tag">start yapping</span>
+      <p class="f-head">free for windows.<br />bring your own key*</p>
+      <p class="f-note">*groq's free tier is enough for many people.</p>
+      <div class="f-actions">
+        <a class="btn-dark magnetic" href="https://github.com/harshilpujara/yapp/releases/latest" data-download>
+          <svg class="ico" aria-hidden="true"><use href="#i-windows" /></svg> Download
+        </a>
+        <a class="f-social" href="https://github.com/harshilpujara/yapp" aria-label="yapp on GitHub">
+          <svg aria-hidden="true"><use href="#i-github" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mascot-stage">
+    <button class="mascot" id="mascot" type="button" aria-label="Poke the yapp mascot">
+      <svg class="mascot-svg" viewBox="290 240 720 790" aria-hidden="true"><g class="m-root" fill="currentColor"><g transform="translate(0,1254) scale(.1,-.1)"><g class="m-tongue"><path fill="url(#g-mark)" d="M8250 6679 c-63 -15 -310 -75 -548 -132 -418 -100 -434 -105 -467 -137 l-35 -34 73 -76 c176 -179 320 -406 425 -669 119 -298 18 -494 -246 -479 -140 8 -181 37 -259 183 -209 391 -261 472 -376 592 -164 170 -348 273 -490 273 -28 0 -306 -60 -645 -140 -1461 -341 -1317 -305 -1428 -360 -186 -92 -358 -297 -393 -468 -64 -309 162 -631 500 -712 199 -48 486 -47 884 1 265 32 432 8 603 -89 124 -69 188 -133 324 -326 186 -261 257 -348 422 -512 345 -343 618 -468 1026 -468 400 -1 730 140 1049 449 206 200 314 386 384 665 30 118 31 135 31 315 0 355 -92 626 -344 1010 -233 355 -301 557 -304 907 -1 177 -1 177 -30 207 -17 17 -32 31 -35 30 -3 -1 -58 -14 -121 -30z"/></g><g class="m-mouth"><path  d="M8250 7405 c-256 -62 -708 -173 -1005 -245 -662 -160 -931 -226 -1560 -380 -269 -66 -746 -183 -1060 -259 -596 -146 -686 -173 -842 -252 -775 -395 -925 -1434 -296 -2051 238 -233 544 -368 938 -414 115 -13 213 -16 556 -12 444 5 476 3 544 -43 20 -13 104 -109 188 -214 580 -727 1202 -1075 1924 -1075 347 0 655 76 1008 250 1090 537 1493 1738 948 2825 -55 109 -91 171 -201 340 -186 284 -227 408 -227 680 0 191 0 191 32 251 149 280 15 609 -286 698 -107 32 -159 24 -661 -99z m127 -932 c2 -350 69 -553 303 -908 252 -384 344 -655 344 -1010 0 -180 -1 -197 -31 -315 -104 -413 -347 -711 -738 -904 -232 -115 -382 -151 -635 -150 -537 0 -908 241 -1365 889 -141 201 -191 260 -272 325 -213 172 -412 221 -738 181 -757 -92 -1116 -13 -1269 279 -152 288 -31 626 277 780 94 46 131 57 467 136 1741 407 1605 379 1711 348 121 -36 266 -129 359 -231 87 -95 153 -202 335 -543 110 -207 177 -255 350 -255 116 0 165 19 236 87 158 153 122 384 -123 786 -82 135 -154 230 -256 334 -52 52 -71 79 -61 82 11 3 1078 261 1099 265 3 1 6 -79 7 -176z"/></g><g class="m-eye m-eye-l"><path  d="M4889 9256 c-112 -31 -219 -116 -273 -215 -45 -84 -56 -141 -56 -301 -1 -275 -77 -435 -245 -515 -158 -75 -313 -39 -559 128 -147 100 -202 121 -310 115 -284 -16 -444 -343 -285 -588 154 -239 458 -437 778 -506 109 -24 348 -24 461 0 518 111 918 516 1032 1048 28 133 32 410 6 500 -70 250 -314 398 -549 334z"/></g><g class="m-eye m-eye-r"><path  d="M7983 9915 c-184 -40 -313 -177 -374 -396 -33 -119 -96 -272 -137 -330 -153 -218 -405 -178 -531 86 -77 163 -177 230 -341 230 -280 0 -425 -233 -335 -539 166 -570 811 -886 1385 -680 398 143 655 434 815 924 91 280 65 456 -88 597 -115 104 -246 140 -394 108z"/></g></g></g></svg>
+    </button>
+    <span class="bubble" id="bubble" aria-live="polite"></span>
+  </div>
+
+  <div class="f-bottom">
+    <span>© 2026 yapp · MIT licensed</span>
+    <span>Windows only, for now.</span>
+  </div>
+</footer>
+
+</body>
+</html>
